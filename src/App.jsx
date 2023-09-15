@@ -7,7 +7,7 @@ function App() {
     <>
       <Header></Header>
 
-      <main className='md:flex'>
+      <main className='md:flex px-14 gap-6'>
         <Courses></Courses>
         <Carts></Carts>
       </main>
