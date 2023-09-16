@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import {BsCurrencyDollar} from 'react-icons/bs';
 import {BsBook} from 'react-icons/bs';
 
-const Course = ({course, AddToCart}) => {
+const Course = ({course, AddToCart, addCredit, addPrice}) => {
     const {course_name, image,  credit, price, details} = course;
     return (
         <div>
@@ -20,7 +20,7 @@ const Course = ({course, AddToCart}) => {
                         <p className='flex items-center'><BsBook/>Credit: {credit}hr</p>
                     </div>
                     <div className="pt-6  ">
-                        <button onClick={() => AddToCart(course)} className="bg-[#2F80ED] text-white p-auto w-full rounded-lg text-lg font-semibold py-2">Select</button>
+                        <button onClick={() => {AddToCart(course); addCredit(credit); addPrice(price)}} className="bg-[#2F80ED] text-white p-auto w-full rounded-lg text-lg font-semibold py-2">Select</button>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,9 @@ const Course = ({course, AddToCart}) => {
 
 Course.propTypes = {
     course: PropTypes.object.isRequired,
-    AddToCart:PropTypes.func
+    AddToCart:PropTypes.func,
+    addCredit:PropTypes.func,
+    addPrice:PropTypes.func
 }
 
 export default Course;

@@ -6,9 +6,18 @@ import { useState } from 'react'
 function App() {
 
   const [carts, setCarts] = useState([]);
+  const [creditHour, setCreditHour] = useState(0);
+  const [price, setPrice] = useState(0);
+
   const AddToCart = course => {
     const newCarts = [...carts, course];
     setCarts(newCarts);
+  }
+  const addCredit = time => {
+    setCreditHour(creditHour + time);
+  }
+  const addPrice = newPrice => {
+    setPrice(price+newPrice);
   }
 
   return (
@@ -16,8 +25,8 @@ function App() {
       <Header></Header>
 
       <main className='md:flex px-14 gap-6'>
-        <Courses AddToCart={AddToCart}></Courses>
-        <Carts carts={carts}></Carts>
+        <Courses AddToCart={AddToCart} addCredit={addCredit} addPrice={addPrice}></Courses>
+        <Carts carts={carts} creditHour={creditHour} price={price}></Carts>
       </main>
     </>
   )
