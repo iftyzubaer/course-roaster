@@ -3,7 +3,7 @@ import { useState } from "react";
 import PropTypes from 'prop-types';
 import Course from "../Course/Course";
 
-const Courses = ({AddToCart, addCredit, addPrice}) => {
+const Courses = ({AddToCart}) => {
 
     const [courses, setCourses] = useState([]);
     useEffect( () => {
@@ -15,7 +15,7 @@ const Courses = ({AddToCart, addCredit, addPrice}) => {
     return (
         <div className="md:w-2/3 grid grid-cols-3 gap-6">
             {
-                courses.map(course => <Course key={course.id} course={course} AddToCart={AddToCart} addCredit={addCredit} addPrice={addPrice}></Course>)
+                courses.map(course => <Course key={course.id} course={course} AddToCart={AddToCart}></Course>)
             }
         </div>
     );
@@ -23,8 +23,6 @@ const Courses = ({AddToCart, addCredit, addPrice}) => {
 
 Courses.propTypes = {
     AddToCart:PropTypes.func,
-    addCredit:PropTypes.func,
-    addPrice: PropTypes.func
 }
 
 export default Courses;

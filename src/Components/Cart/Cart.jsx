@@ -7,9 +7,7 @@ const Cart = ({cart}) => {
 
 
     return (
-        <div>
-            <h3 className='text-base font-normal'>{course_name}</h3>
-        </div>
+        <li className='text-base font-normal'>{course_name}</li>
     );
 };
 
